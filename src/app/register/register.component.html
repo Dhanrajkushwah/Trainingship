@@ -1,0 +1,52 @@
+<!-- registration.component.html -->
+ <div class="mt-5">
+<div class="container">
+    <div>
+    <h2>Registration Form</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" formControlName="fullName" class="form-control" />
+        <div *ngIf="submitted && formControls['fullName'].errors" class="error">
+          <div *ngIf="formControls['fullName'].errors['required']">Full Name is required.</div>
+          <div *ngIf="formControls['fullName'].errors['pattern']">Please enter a valid full name (3-50 characters).</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Mobile No:</label>
+        <input type="text" id="mobile" formControlName="mobile" class="form-control" />
+        <div *ngIf="submitted && formControls['mobile'].errors" class="error">
+          <div *ngIf="formControls['mobile'].errors['required']">Mobile Number is required.</div>
+          <div *ngIf="formControls['mobile'].errors['pattern']">Please enter a valid mobile number (10 digits).</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" formControlName="email" class="form-control" />
+        <div *ngIf="submitted && formControls['email'].errors" class="error">
+          <div *ngIf="formControls['email'].errors['required']">Email is required.</div>
+          <div *ngIf="formControls['email'].errors['pattern']">Please enter a valid email address.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" class="form-control" />
+        <div *ngIf="submitted && formControls['username'].errors" class="error">
+          <div *ngIf="formControls['username'].errors['required']">Username is required.</div>
+          <div *ngIf="formControls['username'].errors['pattern']">Please enter a valid username (3-20 characters, alphanumeric and underscores only).</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" class="form-control" />
+        <div *ngIf="submitted && formControls['password'].errors" class="error">
+          <div *ngIf="formControls['password'].errors['required']">Password is required.</div>
+          <div *ngIf="formControls['password'].errors['pattern']">Password must be 6-20 characters long, include at least one uppercase letter, one lowercase letter, and one number.</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</div>
+ </div>
+  
